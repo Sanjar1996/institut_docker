@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Xodimlar</h2>
+          <ol>
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li>Xodimlar</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team ">
+      <div class="container">
+
+        <div class="row">
+        {% for data in xodim %}
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start">
+              <div class="pic">
+                  {% if data.images %}
+                  <img src="{{ data.images.url }}" class="img-fluid" alt="" style="height: 150px; width: 150px;">
+                  {% endif %}
+              </div>
+              <div class="member-info">
+                <h4>{{ data.full_name }}</h4>
+                <span>{{ data.deportment }}</span>
+                <p>{{ data.occupation }}</p>
+                <!-- <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+  </main><!-- End #main -->
+{% endblock content %}

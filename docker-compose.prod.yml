@@ -1,0 +1,57 @@
+  version: '2'
+
+  services:
+    institutdb_prod:
+      container_name: institutdb_prod
+      restart: always  
+      image: postgres:12.2
+      environment:
+        POSTGRES_DB: db_institut_prod
+        POSTGRES_USER: institutuser_prod
+        POSTGRES_PASSWORD: institutpass_prod
+      networks:
+        - institut-network
+      volumes:
+          - institutdata:/var/lib/postgresql/institutdata/
+      
+    institutweb_prod:
+      container_name: institutweb_prod
+      restart: always  
+      build:
+        context: .
+        dockerfile: Dockerfile.prod
+      command: gunicorn config.wsgi:application --bind 0.0.0.0:1919
+      volumes:
+        - static_volume_institut:/home/app/web/static
+        - media_volume_institut:/home/app/web/media
+      networks:
+        - institut-network
+      depends_on: 
+        - institutdb_prod
+      ports:
+        - "1919:1919"
+      env_file: 
+        - ./.env.prod
+
+    institutnginx:
+      container_name: institut-nginx
+      restart: always
+      build: ./nginx
+      volumes:
+        - static_volume_institut:/home/app/web/static
+        - media_volume_institut:/home/app/web/media
+      ports:
+        - "7171:7171"
+      networks:
+        - institut-network
+      depends_on:
+        - institutweb_prod
+        
+  volumes:
+    institutdata:
+    static_volume_institut:
+    media_volume_institut:
+
+  networks:
+    institut-network:
+      driver: bridge

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load active_link_tags %}
+{% load static %}
+{% block content %}
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" xmlns="http://www.w3.org/1999/html">
+        <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url({% static 'assets/img/bgimg.jpg' %})">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">O'rmon xo'jaligi
+                            <span>ilmiy-tadqiqot instituti</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+
+                <div class="row content">
+                    <div class="col-lg-12 pt-4 pt-lg-0">
+                        <p>
+                        <p><b></b><h4 style="font-family: Arial; text-align: center;font-size: 27px;">O'rmon xo'jaligi ilmiy-tadqiqot
+                        instituting asosiy ilmiy va
+                        amaliy natijalari:</h4></b></p>
+
+                        <h5 style="font-family: 'Arial'; font-size: 25px;">
+                            &nbsp &nbsp &nbsp Tez oʼsuvchi Pavlovniya daraxtining “Tomentoza” “Shanktong” navlari
+                            koʼchatlarini “in-vitro” laboratoriyasida intensiv yetishtirish texnologiyasi 10 ta oʼrmon
+                            xoʼjaliklariga joriy etildi. Qurigan Orol dengizi tubida ixota oʼrmonlarini barpo etish uchun
+                            “Choʼl oʼsimliklari nihol va koʼchatlarini avtomatik ekuvchi” oʼrmon mashinasi yaratildi va
+                            25 nusxadagi mashinasi ishlab chiqarishga joriy etildi. Orol dengizining qurigan tubida
+                            yashil qoplamalar barpo etish 743 ming gektarda uchun koʼchatxonlarda choʼl oʼsimliklarini
+                            intensiv yetishtirish texnologiyasi Muynoq va Taxtakoʼpir oʼrmon xoʼjaliklariga joriy
+                            etildi.Konteyner idishlarda xandon pista koʼchatlarini yetishtirish hamda pista
+                            plantatsiyalarini barpo etishda tomchilatib sugʼorish texnologiyalari Navoiy viloyati Nurota
+                            tumanining togʼoldi yer maydonlariga joriy etildi. <br><br><br>
+                            &nbsp;&nbsp;&nbsp;Dorivor oʼsimliklar, xususan shafran,
+                            kovrak, sistanxe, gulxayri, Damashx atirguli, godji, exinatsiya va x.k. oʼsimliklarni
+                            yetishtirish texnologiyalari joriy etilib, 18 ta xoʼjalikda onalaik plantatsiyalari
+                            yaratildi.Xandon pistaning 13 ta navi yaratilib, Navoiy viloyatining Nurota davlat oʼrmon
+                            xoʼjaligida 900 ga, Аndijon davlat oʼrmon xoʼjaligida 2000 ga, Surxondaryo va Qashqadaryo
+                            viloyatlarida 1000 ga maydonda pista plantatsiyalari barpo etishda joriy etildi. Grek
+                            yongʼogʼining 10 ta yangi shakllari tanlab olindi.
+                        </h5>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="row">
+                    <center>
+                        <section><h1><b>Me'yoriy hujjatlar:</b></h1></section>
+                    </center>
+                    {% for data in qonun %}
+                        <div class="col-md-6">
+                            <div class="icon-box">
+                                <i class="{{ data.icon }}"></i>
+                                <h4><a href="{{ data.link }}">{{ data.title }}</a></h4>
+                                <p>{{ data.sub_title }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section><!-- End Services Section -->
+    </main><!-- End #main -->
+
+{% endblock content %}

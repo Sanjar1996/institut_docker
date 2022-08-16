@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Biz haqimizda</h2>
+                    <ol>
+                        <li><a href="index.html">Bosh saxifa</a></li>
+                        <li>Biz haqimizda</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+
+                <div class="row content">
+                    <div class="col-lg-6">
+                        <h2>O'rmon xo'jaligi ilmiy-tadqiqot isntituti</h2>
+                        <h3 style=" font-family: Arial;">Davlat muassasasi shaklida 1927 yilda tashkil etilgan va 2017
+                             yilda qayta tashkil etilgan. Oʼrmon xoʼjaligi ilmiy-tadqiqot instituti Oʼzbekiston
+                            Respublikasi Prezidentining 2017 yil 11 maydagi “Oʼzbekiston Respublikasi Oʼrmon xoʼjaligi
+                            davlat qoʼmitasi faoliyatini tashkil etish toʼgʼrisida”gi 2966-sonli
+                            <a href="https://lex.uz/uz/docs/-3201275">qarori</a>.
+                        </h3>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0">
+                        <p>
+                            O'rmon xo'jaligi ilmiy-tadqiqot isntitutining <a href="{% static 'assets/nizom.doc' %}">ustavi.</a>
+                            Ustavda O'rmon xo'jaligi ilmiy-tadqiqot isntitutining asosiy vazifalari va huquqlari
+                            haqida yoritilgan.
+                        </p>
+                        <ul>
+                            <li><b>Korxona o'rnatilgan tartibda quyidagi faoliyat turlarini amalga oshiradi:</b></li>
+                            <li><i class="ri-check-double-line"></i> o'rmon xo’jaligi faoliyatiga doir dasturiy
+                                maxsulotlar, axborot tizimlari va resurslarini joriy etish
+                            </li>
+                            <li><i class="ri-check-double-line"></i> o'rmon xo’jaligi soxasida uzaro idoralararo
+                                elektron hamkorlikni
+                                tashkil qilish, yagona elektron reyestrlar va ma’lumotlar bazalarini shakllantirish
+                            </li>
+                            <li><i class="ri-check-double-line"></i> o'rmon xo’jaligida elektron davlat xizmatlari
+                                ko'rsatish
+                                tizimlarini shakllantirishga texnologik yondashuv amalga oshirilishini ta’minlash
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+
+        <!-- ======= Team Section ======= -->
+        <section id="team" class="team section-bg">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Xodimlar</h2>
+                    <p>Bizning jamoa</p>
+                </div>
+
+                <div class="row">
+                    {% for data in employe %}
+                        <div class="col-lg-6{% if not forloop.first %} mt-4 {% endif %}">
+                            <div class="member d-flex align-items-start">
+                                <div class="pic">
+                                    {% if data.images %}
+                                        <img src="{{ data.images.url }}" class="img-fluid" alt=""
+                                             style="height: 150px; width: 150px;">
+                                    {% endif %}
+                                </div>
+                                <div class="member-info">
+                                    <h4>{{ data.full_name }}</h4>
+                                    <span>{{ data.deportment }}</span>
+                                    <p>{{ data.occupation }}</p>
+                                    <div class="social">
+                                        <a href=""><i class="ri-twitter-fill"></i></a>
+                                        <a href=""><i class="ri-facebook-fill"></i></a>
+                                        <a href=""><i class="ri-instagram-fill"></i></a>
+                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section><!-- End Team Section -->
+
+
+    </main><!-- End #main -->
+{% endblock content %}

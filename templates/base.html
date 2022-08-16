@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+{% load active_link_tags %}
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>O'rmon xo'jaligi ilmiy-tadqiqot instituti</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static  'assets/img/gerb.png' %}" rel="icon">
+  <link href="{% static  'assets/img/icon.jpeg' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static  'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static  'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static  'assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto">
+          <img src="{% static 'assets/img/icon.jpeg' %}" alt="" class="icon_gerb" >
+          <a href="{% url 'home' %}" class="{% active_link 'home' %}"  style="font-size: 17px; position: absolute; margin: 10px;">
+                O'rmon xo'jaligi <br>ilmiy-tadqiqot isntituti<br>
+
+      </a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="{% static  'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'home' %}"{% if forloop.firts %} class="{% active_link 'home' %}" {% endif %} >Bosh sahifa</a></li>
+
+          <li class="dropdown"><a href="{% url 'about' %}" class="{% active_link 'about' %}"><span>Biz haqimizda</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'about' %}" class="{% active_link 'about' %}">Biz haqimizda</a></li>
+              <li><a href="{% url 'team' %}" class="{% active_link 'team' %}">Xodimlar</a></li>
+              <li><a href="{% url 'tuzilma' %}" class="{% active_link 'tuzilma' %}">Tuzilma</a></li>
+            </ul>
+          </li>
+            <li class="dropdown"><a href="#"><span>Hujjatlar</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a href="{% url 'farmon' %}">Prezident farmoni</a></li>
+                <li><a href="{% url 'qaror' %}">Qarorlar</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'service' %}" class="{% active_link 'service' %}" >Xizmat turlari</a></li>
+          <li><a href="{% url 'portal' %}" class="{% active_link 'portal' %}">Ochiq ma'lumotlar portali</a></li>
+          <li><a href="{% url 'news' %}" class="{% active_link 'news' %}">Yangiliklar</a></li>
+          <li><a href="{% url 'contact' %}" class="{% active_link 'contact' %}">Biz bilan aloqa</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+{% block content %}
+
+{% endblock content %}
+
+ <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info" style="font-family: Arial">
+              <h3>O'rmon xo'jaligi ilmiy-tadqiqot instituti</h3>
+              <p style="font-family: Arial;">
+                Toshkent viloyat <br>
+                Toshkent tuman Darxon daxasi<br>
+                Chimkent yo'li ko'chasi 6 uy<br><br>
+                <strong>Telefon:</strong> +998 (71) 225-72-32<br>
+{#                <strong>Elektron pochta:</strong> texnoservis@urmon.uz<br>#}
+              </p>
+              <div class="social-links mt-3">
+{#                <a href="https://t.me/urmontexabar" class="telegram"><i class="bx bxl-telegram"></i></a>#}
+{#                <a href="https://www.facebook.com/profile.php?id=100073908915488" class="facebook"><i class="bx bxl-facebook"></i></a>#}
+{#                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>#}
+{#                <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>#}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Sayt xaritasi</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Bosh sahifa</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">Biz haqimizda</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'service' %}">Xizmat turlari</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'team' %}">Xodimlar</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Foydali havolalar</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://urmon.uz/uz/asosiy/">O'zbekiston Respublikasi O'rmon xo'jaligi davlat qo'mitasining rasmiy veb-sayti</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://ijara-urmon.uz/">O'rmon fondi yerlarini auksion orqali ijaraga berish portali</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://ruxsatnoma-urmon.uz/">O'zbekiston Respublikasi O'rmon xo'jaligi davlat qo'mitasiga qarashli ruxsatnoma olish portali</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>"O'RMONTEXNOSERVIS" DUK</span></strong>. Saytdagi maʼlumotlardan toʼliq yoki qisman foydalanilganda, O'rmon xo'jaligi ilmiy-tadqiqot instituti veb sayti manba sifatida koʼrsatilishi shart.
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static  'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static  'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static  'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static  'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

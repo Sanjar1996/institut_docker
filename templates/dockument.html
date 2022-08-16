@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Xujjatlar</h2>
+          <ol>
+            <li><a href="{% url 'home' %}">Bosh saxifa</a></li>
+            <li>Xujjatlar</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-6 {% if not forloop.first %}mt-4 mt-md-0{% endif %}">
+            <div class="icon-box">
+              <i class="bi bi-card-checklist"></i>
+              <h4><a href="#">Dolor Sitema</a></h4>
+              <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

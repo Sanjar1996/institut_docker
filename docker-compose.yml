@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  institutdb:
+    container_name: institutdb
+    image: postgres
+    environment:
+      POSTGRES_DB: db_institut
+      POSTGRES_USER: institutuser
+      POSTGRES_PASSWORD: institutpass
+    volumes:
+      - postgres_data:/var/lib/postgresql/datainstitut/
+    ports:
+      - "5433:5433"
+  institutweb:
+    container_name: institut
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - institutdb
+    env_file:
+      - ./.env.dev
+
+volumes:
+  postgres_data:
